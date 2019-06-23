@@ -8,11 +8,11 @@ public class Liuyanshengkeshe_denglu {
     public static void main(String[] args) {
         // TODO code application logic here
         /*登录界面*/
-//        new Login();
+        new Login();
         /*注册界面*/
 //        new Register();
         /*管理界面*/
-        new Management();
+//        new Management();
         /*修改密码*/
 //        new ChangePassword();
         /*图书查询界面*/
@@ -25,7 +25,8 @@ public class Liuyanshengkeshe_denglu {
 //        new BooksListGui();
         /*阅读界面*/
 //        new ReadingBooksGui();
-        
+        /*字体选择界面*/
+//        new MyFontPanel();
         
         
         

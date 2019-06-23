@@ -14,21 +14,30 @@ import java.io.*;
  */
 public class ReadingBooksGui extends JFrame implements ActionListener{
     
-    Container con;
-    JScrollPane scroll;
-    JTextArea text;
-    JMenuBar bar;
-    JMenuItem item1,item2,item3;
-    JMenu menu1;
+    public Container con;
+    public JScrollPane scroll;
+    public JTextArea text;
+    public JMenuBar bar;
+    public JMenuItem item1,item2,item3;
+    public JMenu menu1,menu2,menu3;
+    public JMenuItem itemColorFont;
+    public JMenuItem itemColorSelection;
+    public JMenuItem itemFontStyle;
+//    JTextPane text2;
     public ReadingBooksGui(){
         
     }
     public ReadingBooksGui(String bookname){
         super("图书试读");
+        
+        Font font =new Font("微软雅黑", Font.PLAIN, 18);
+        
         bookname = bookname.trim();
         bookname=bookname+".txt";
         con =getContentPane();
         bar = new JMenuBar();
+        
+        /*背景设置*/
         menu1 = new JMenu("背景设置");
         item1 = new JMenuItem("护眼模式");
         item1.addActionListener(new ActionListener(){
@@ -50,19 +59,70 @@ public class ReadingBooksGui extends JFrame implements ActionListener{
                 
             }
         });
+        /*字体设置*/
+        menu2 = new JMenu("字体设置");
+        itemColorFont = new JMenuItem("设置选定字体颜色");
+        itemColorFont.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Color newColor = JColorChooser.showDialog(con, "颜色", Color.yellow);
+                if(newColor!=null){
+                    text.setSelectedTextColor(newColor);
+                    
+                }
+            }
+        });
+        itemFontStyle = new JMenuItem("设置字体");
+        itemFontStyle.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                MyFontPanel font = new MyFontPanel();
+                font.setJTextAreaFont(text);
+//                String fontStyleName = font.selectFontName;
+//                text.setFont(new Font(fontStyleName, Font.PLAIN, 18));
+                
+            }
+        });
+        
+        /*段落设置*/
+        menu3 = new JMenu("段落设置");
+        itemColorSelection  = new JMenuItem("设置选定段落的颜色");
+        itemColorSelection.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                Color newColor = JColorChooser.showDialog(con, "颜色", Color.yellow);
+                if(newColor!=null){
+                    text.setSelectionColor(newColor);
+                    
+                }
+            }
+        });
+        
+        
+        
+        
         menu1.add(item1);
         menu1.addSeparator();
         menu1.add(item2);
         menu1.addSeparator();
         menu1.add(item3);
+        
+        menu2.add(itemColorFont);
+        menu2.addSeparator();
+        menu2.add(itemFontStyle);
+        
+        menu3.add(itemColorSelection);
+        
         bar.add(menu1);
+        bar.add(menu2);
+        bar.add(menu3);
         setJMenuBar(bar);
         
         text = new JTextArea();
         text.setLineWrap(true);//设置自动换行
         text.setWrapStyleWord(true);   
         text.setEditable(false);
-        text.setFont(new Font("微软雅黑", Font.PLAIN, 18));
+        text.setFont(font);
+        
+//        text2 = new JTextPane();
+//        text2.add(text);
 //        text.setText(null);
         try{
             BufferedReader bfr = new BufferedReader(new FileReader(new File(bookname)));

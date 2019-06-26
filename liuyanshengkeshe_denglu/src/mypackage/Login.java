@@ -26,19 +26,15 @@ public class Login extends JFrame implements ActionListener{
     public Login(){
         super("登陆界面");
         container = getContentPane();
-        /*
-        container.setLayout(new BoxLayout(container,BoxLayout.PAGE_AXIS));
-        */
         myimgpanel = new MyPanel();
+        /*初始化数据库中的用户信息*/
+        data = new UserData();
+        data.upDateMap();
         
         /*第一个面板*/
         label1 = new JLabel("用户名：");
         label1.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tf1 = new JTextField(10);
-//        JPanel usePanel = new JPanel();
-//        usePanel.add(label1);
-//        usePanel.add(tf1);
-//        myimgpanel.add(usePanel);
         myimgpanel.add(label1);
         myimgpanel.add(tf1);
         
@@ -46,10 +42,6 @@ public class Login extends JFrame implements ActionListener{
         label2 = new JLabel("密    码：");
         label2.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tp1 = new JPasswordField(10);
-//        JPanel passPanel = new JPanel();
-//        passPanel.add(label2);
-//        passPanel.add(tp1);
-//        myimgpanel.add(passPanel);
         myimgpanel.add(label2);
         myimgpanel.add(tp1);
         /*第三个面板*/
@@ -63,11 +55,6 @@ public class Login extends JFrame implements ActionListener{
         String randomText = st;
         ColorVerificationCode colorlabel = new ColorVerificationCode(st);
         colorlabel.setFont(new Font("微软雅黑", Font.PLAIN, 18));
-//        JPanel identityPanel = new JPanel();
-//        identityPanel.add(label3);
-//        identityPanel.add(tf3);
-//        identityPanel.add(colorlabel);
-//        myimgpanel.add(identityPanel);
         myimgpanel.add(label3);
         myimgpanel.add(tf3);
         myimgpanel.add(colorlabel);
@@ -77,7 +64,7 @@ public class Login extends JFrame implements ActionListener{
         button1.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         button1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                data = new UserData();
+//                data = new UserData();
                 String get_name = tf1.getText();
                 String get_password = tp1.getText();
                 String get_code = tf3.getText();
@@ -130,21 +117,11 @@ public class Login extends JFrame implements ActionListener{
            }
             
         });
-//        JPanel buttonPanel = new JPanel();
-//        buttonPanel.add(button1);
-//        buttonPanel.add(button2);
-//        buttonPanel.add(button3);
-//        myimgpanel.add(buttonPanel);
         myimgpanel.add(button1);
-        //myimgpanel.add(button2);
         myimgpanel.add(meilabel);
         myimgpanel.add(button3);
         /*设置面板位置*/
         myimgpanel.setLayout(null);
-//        usePanel.setLocation(0,0);
-//        passPanel.setLocation(0,150);
-//        identityPanel.setLocation(0,200);
-//        buttonPanel.setLocation(0,250);
         /*用户名位置*/
         label1.setSize(200,100);
         label1. setLocation(920,240);
@@ -165,13 +142,10 @@ public class Login extends JFrame implements ActionListener{
         /*按钮的位置*/
         button1.setSize(300,35);
         button1.setLocation(920,520);
-//        button2.setSize(75,28);
-  //      button2.setLocation(1000,600);
         meilabel.setSize(90,28);
         meilabel.setLocation(920,554);
         button3.setSize(75,28);
         button3.setLocation(1000,554);
-        
         getContentPane().add(myimgpanel);
 //        pack();
         /*设置窗口的大小不能改变*/

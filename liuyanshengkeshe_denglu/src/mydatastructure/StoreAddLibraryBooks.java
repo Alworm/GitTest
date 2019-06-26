@@ -24,8 +24,4 @@ public class StoreAddLibraryBooks {
         return tolibrary[j];
     }
     
-    
-    
-    
-    
 }

@@ -33,32 +33,12 @@ public class Management extends JFrame implements ActionListener{
         button1.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         button1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                
-                /*在当前页面返回数据*/
-                /*
-                centertop = new JPanel();
-               SelectBook stb =  new SelectBook();
-               centertop = stb.getCenterTop();
-               text = new JTextArea();
-               text = stb.getTextInformation();
-               scroll = new JScrollPane(text);
-               
-               center = new JPanel();
-               center.setLayout(new BorderLayout());
-               center.add(centertop,BorderLayout.NORTH);
-               center.add(scroll,BorderLayout.CENTER);
-               
-               imgpanel.add(center);
-               setVisible(true);
-               */
                 /*产生一个新的页面*/
                 SelectBookLabel stb = new SelectBookLabel();
             }
         });
         /*把图书查询添加到图片panel中*/
         imgpanel.add(button1);
-        
-        
         button2 = new JButton("个人图书");
         button2.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         button2.addActionListener(new ActionListener(){
@@ -77,13 +57,7 @@ public class Management extends JFrame implements ActionListener{
             
             public void actionPerformed(ActionEvent e){
                 ChangePassword pass = new ChangePassword();
-                /*
-                ChangePassword pass = new ChangePassword();
-                passCenter = new JPanel();
-                passCenter = pass.getPasswordPane();
-                con.add(passCenter);
-                setVisible(true);
-                */
+                
             }
         
         });
@@ -102,17 +76,6 @@ public class Management extends JFrame implements ActionListener{
         /*把退出系统button 添加到panel中*/
         imgpanel.add(button4);
         
-        /*
-        top.add(button1);
-        top.add(Box.createHorizontalStrut(100));
-        top.add(button2);
-        top.add(Box.createHorizontalStrut(100));
-        top.add(button3);
-        top.add(Box.createHorizontalStrut(100));
-        top.add(button4);
-        
-        con.add(top);
-        */
         getContentPane().add(imgpanel);
 //        setLocation(Location(getSize()));
         setSize(1160,650);

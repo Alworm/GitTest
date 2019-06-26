@@ -40,11 +40,7 @@ public class Register extends JFrame implements ActionListener{
         label1 = new JLabel("用  户  名：");
         label1.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tf1 = new JTextField(10);
-//        JPanel usePanel = new JPanel();
-//        usePanel.add(label1);
-//        usePanel.add(tf1);
-//        con.add(usePanel);
-//        mypanel.add(usePanel);
+
         gifpanel.add(label1);
         gifpanel.add(tf1);
         
@@ -53,11 +49,7 @@ public class Register extends JFrame implements ActionListener{
         label2 = new JLabel("输入密码：");
         label2.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tp1 = new JPasswordField(10);
-//        JPanel passPanel = new JPanel();
-//        passPanel.add(label2);
-//        passPanel.add(tp1);
-//        con.add(passPanel);
-//        mypanel.add(passPanel);
+
         gifpanel.add(label2);
         gifpanel.add(tp1);
         
@@ -65,11 +57,7 @@ public class Register extends JFrame implements ActionListener{
         label3 = new JLabel("确认密码：");
         label3.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tp2 = new JPasswordField(10);
-//        JPanel qpassPanel = new JPanel();
-//        qpassPanel.add(label3);
-//        qpassPanel.add(tp2);
-//        con.add(qpassPanel);
-//        mypanel.add(qpassPanel);
+
         gifpanel.add(label3);
         gifpanel.add(tp2);
         
@@ -77,11 +65,7 @@ public class Register extends JFrame implements ActionListener{
         label4 = new JLabel("电子邮箱：");
         label4.setFont(new Font("微软雅黑", Font.PLAIN, 18));
         tf2 = new JTextField(10);
-//        JPanel emailPanel = new JPanel();
-//        emailPanel.add(label4);
-//        emailPanel.add(tf2);
-//        con.add(emailPanel);
-//        mypanel.add(emailPanel);
+
         gifpanel.add(label4);
         gifpanel.add(tf2);
         
@@ -95,6 +79,7 @@ public class Register extends JFrame implements ActionListener{
 //                
                 data = new UserData();//把数据保存好
                 data.pushData(new_name, new_password, new_email);
+                data.pushDataToDataBase(new_name, new_password, new_email);
             }
         });
         button1.setFont(new Font("微软雅黑", Font.PLAIN, 18));
@@ -140,16 +125,9 @@ public class Register extends JFrame implements ActionListener{
                 dispose();
             }
         });
-//        JPanel buttonPanel = new JPanel();
-//        buttonPanel.add(button1);
-//        buttonPanel.add(button2);
-//        con.add(buttonPanel);
-//        mypanel.add(buttonPanel);
+
         gifpanel.add(button1);
         gifpanel.add(button2);
-        
-        
-//        gifpanel.add(mypanel);
         con.add(gifpanel);
 //        pack();
         /*设置按钮的位置*/
@@ -178,11 +156,7 @@ public class Register extends JFrame implements ActionListener{
         button1.setLocation(140,360);
         button2.setSize(80,28);
         button2.setLocation(300,360);
-//        usePanel.setLocation(100,100 );
-//        usePanel.setSize(100,100);
-//        passPanel.setLocation(100,200);
-//        qpassPanel.setLocation(100,300);
-//        buttonPanel.setLocation(100,500);
+
         setSize(547,594);
         setVisible(true);
         setLocation(location(getSize()));

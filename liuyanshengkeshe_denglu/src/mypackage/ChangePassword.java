@@ -20,8 +20,12 @@ public class ChangePassword extends JFrame implements ActionListener{
     JPasswordField passText,repassText,newpassText;
     JPanel center;
     String currentusername;
+    UserData data;
     public ChangePassword(){
         con =getContentPane();
+        /*使用数据库中的用户数据,实例化*/
+        data = new UserData();
+        
         center = new JPanel();
         center.setLayout(new BoxLayout(center,BoxLayout.PAGE_AXIS));
         passLabel = new JLabel("输入原始密码:        ");
@@ -55,15 +59,16 @@ public class ChangePassword extends JFrame implements ActionListener{
                 String newcurrentpassword = newpassText.getText();
                 String recurrentpassword = repassText.getText();
                 
-                UserData data = new UserData();
+//                UserData data = new UserData();
                 //原始密码正确，并且两次输入的密码一致，那么可以修改密码。
                 if(data.checkPassword(currentusername, currentpassword)){
                     if(newcurrentpassword.equals(recurrentpassword)){
-                        data.removeKeyAndValue(currentusername);
-                        data.pushUserAndPassword(currentusername, newcurrentpassword);
+//                        data.removeKeyAndValue(currentusername);
+//                        data.pushUserAndPassword(currentusername, newcurrentpassword);
+                        data.alterDataBasePassword(currentusername, newcurrentpassword);
                         JOptionPane.showMessageDialog(null, "修改密码成功请重新登录", "修改密码成功", 
                             JOptionPane.INFORMATION_MESSAGE);
-                        data.printNameAndPassword();
+//                        data.printNameAndPassword();
                         /*关闭管理界面，修改密码界面，打开新的登录界面*/
                         Login l = new Login("");
                         l.manage.setVisible(false);

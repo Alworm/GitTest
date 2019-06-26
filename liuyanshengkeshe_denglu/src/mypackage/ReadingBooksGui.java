@@ -94,10 +94,6 @@ public class ReadingBooksGui extends JFrame implements ActionListener{
                 }
             }
         });
-        
-        
-        
-        
         menu1.add(item1);
         menu1.addSeparator();
         menu1.add(item2);
@@ -120,10 +116,7 @@ public class ReadingBooksGui extends JFrame implements ActionListener{
         text.setWrapStyleWord(true);   
         text.setEditable(false);
         text.setFont(font);
-        
-//        text2 = new JTextPane();
-//        text2.add(text);
-//        text.setText(null);
+
         try{
             BufferedReader bfr = new BufferedReader(new FileReader(new File(bookname)));
             while(bfr.read()!=-1){

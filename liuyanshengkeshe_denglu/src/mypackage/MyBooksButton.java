@@ -28,9 +28,6 @@ public class MyBooksButton extends JButton{
         addbutton.setContentAreaFilled(false);//去掉背景点击效果
         addbutton.setBorder(null);//去掉边框
         addbutton.setLocation(40,120);
-        
-        
     }
-    
     
 }
